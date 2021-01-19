@@ -18,8 +18,3 @@ spring:
 # Server configuration
 server:
   port: 8080 #set your port
-
-#Runtime version
-java:
-  runtime:
-    version: 11
