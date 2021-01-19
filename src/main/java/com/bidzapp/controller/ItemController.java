@@ -29,12 +29,12 @@ public class ItemController {
     }
 
     @PostMapping("/items")
-    public Item saveItem(Item item) {
+    public Item saveItem(@RequestBody Item item) {
         return itemService.save(item);
     }
 
     @PutMapping("/update")
-    public Item updateItem(Item item) {
+    public Item updateItem(@RequestBody Item item) {
         return itemService.update(item);
     }
 
