@@ -3,9 +3,11 @@ package com.bidzapp.service;
 import com.bidzapp.model.Item;
 import com.bidzapp.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ItemService {
 
     @Autowired
