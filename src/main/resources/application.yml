@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show.sql: true
+    hibernate:
+      ddl.auto: create-drop
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/bidz_db
+    username: val
+    password: codeup
+    dirverClassName: org.postgresql.Driver
