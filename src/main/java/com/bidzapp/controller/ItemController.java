@@ -3,6 +3,7 @@ package com.bidzapp.controller;
 import com.bidzapp.model.Item;
 import com.bidzapp.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,23 +24,25 @@ public class ItemController {
         return itemService.getAllItems();
     }
 
-//    @GetMapping("/items/{id}")
-    public Item getItem(Long id) {
+    @GetMapping("/items/{id}")
+    public Item getItem(@PathVariable Long id) {
         return itemService.getItemById(id);
     }
 
-//    @PostMapping("/items")
+    @PostMapping("/items")
+    @ResponseStatus(HttpStatus.CREATED)
     public Item saveItem(@RequestBody Item item) {
         return itemService.save(item);
     }
 
-//    @PutMapping("/update")
+    @PutMapping("/update")
     public Item updateItem(@RequestBody Item item) {
         return itemService.update(item);
     }
 
-//    @DeleteMapping("/items/{id}")
-    public void deleteItem(Long id) {
+    @DeleteMapping("/items/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteItem(@PathVariable Long id) {
         itemService.delete(id);
     }
 }
