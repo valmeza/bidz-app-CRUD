@@ -5,6 +5,7 @@ import com.bidzapp.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,9 +18,7 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public List<Item> getAllItems() {
-        return itemRepository.findAll();
-    }
+    public List<Item> getAllItems() { return itemRepository.findAll(); }
 
     public Item getItemById(Long id) {
         return itemRepository.getOne(id);

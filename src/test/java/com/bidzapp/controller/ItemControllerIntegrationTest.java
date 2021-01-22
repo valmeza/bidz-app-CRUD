@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -67,5 +68,11 @@ public class ItemControllerIntegrationTest {
         // Perform a request and return a type that allows chaining certain actions
         // such as asserting expectations on the result
         mockMvc.perform(get("/api/v1/items")).andExpect(status().isOk());
+    }
+
+    @Test
+    public void getAllItems_CallsItemService() throws Exception {
+        mockMvc.perform(get("/api/v1/items")).andExpect(status().isOk());
+        Mockito.verify(itemService).getAllItems();
     }
 }

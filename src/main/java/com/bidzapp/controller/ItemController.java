@@ -23,22 +23,22 @@ public class ItemController {
         return itemService.getAllItems();
     }
 
-    @GetMapping("/items/{id}")
+//    @GetMapping("/items/{id}")
     public Item getItem(Long id) {
         return itemService.getItemById(id);
     }
 
-    @PostMapping("/items")
+//    @PostMapping("/items")
     public Item saveItem(@RequestBody Item item) {
         return itemService.save(item);
     }
 
-    @PutMapping("/update")
+//    @PutMapping("/update")
     public Item updateItem(@RequestBody Item item) {
         return itemService.update(item);
     }
 
-    @DeleteMapping("/items/{id}")
+//    @DeleteMapping("/items/{id}")
     public void deleteItem(Long id) {
         itemService.delete(id);
     }
