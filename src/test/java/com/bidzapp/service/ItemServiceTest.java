@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -18,12 +19,15 @@ class ItemServiceTest {
     ItemRepository itemRepository;
     List<Item> itemList;
     Item item;
+    java.util.Date utilDate;
 
     @BeforeEach
     public void setup(){
+        utilDate = new java.util.Date();
         itemRepository = Mockito.mock(ItemRepository.class);
         itemService = new ItemService(itemRepository);
-        item = new Item(null, "name", "des", "owner");
+//        item = new Item(null, "name", "des", "owner");
+        item = new Item(null, "name", "des", "owner", null, null, new Date(utilDate.getTime()), new Date(utilDate.getTime()), null, null, null);
         itemList = Arrays.asList(item);
     }
 
@@ -47,7 +51,7 @@ class ItemServiceTest {
 
     @Test
     public void save_returnsSavedItem() {
-        Item newItem = new Item(1L, "name", "des", "owner");
+        Item newItem = new Item(1L, "name", "des", "owner", null, null, new Date(utilDate.getTime()), new Date(utilDate.getTime()), null, null, null);
 
         Mockito.when(itemService.save(item)).thenReturn(newItem);
 

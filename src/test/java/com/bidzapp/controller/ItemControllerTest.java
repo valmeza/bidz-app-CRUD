@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.sql.Date;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,10 +22,11 @@ class ItemControllerTest {
 
     @BeforeEach
     public void setup(){
+        java.util.Date utilDate = new java.util.Date();
         itemService = Mockito.mock(ItemService.class);
         itemController = new ItemController(itemService);
         itemId = 1L;
-        item = new Item(itemId, null, null, null);
+        item = new Item(itemId, null, null, null, null, null, new Date(utilDate.getTime()), new Date(utilDate.getTime()), null, null, null);
         itemList = Arrays.asList(item);
     }
 
