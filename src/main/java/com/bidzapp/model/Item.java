@@ -11,6 +11,7 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "items")
 public class Item {
 
     @Id
@@ -38,7 +39,7 @@ public class Item {
     @Column(nullable = false)
     Date bidEndDateTime;
 
-    @Column(columnDefinition = "0.01", nullable = false)
+    @Column(nullable = false)
     Double bidMinimumAmount;
 
     @Column(nullable = false)
