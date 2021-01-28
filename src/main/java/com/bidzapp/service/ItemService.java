@@ -20,8 +20,8 @@ public class ItemService {
 
     public List<Item> getAllItems() { return itemRepository.findAll(); }
 
-    public Item getItemById(Long id) {
-        return itemRepository.getOne(id);
+    public Item getItemById(long id) {
+        return itemRepository.findById(id).orElse(null);
     }
 
     public Item save(Item item) {
@@ -32,7 +32,10 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public void delete(Long id) {
-        itemRepository.deleteById(id);
+    public void delete(long id) {
+        Item item = itemRepository.findById(id).orElse(null);
+        if(item != null) {
+            itemRepository.delete(item);
+        }
     }
 }

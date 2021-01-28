@@ -26,7 +26,7 @@ public class ItemController {
     }
 
     @GetMapping("/items/{id}")
-    public Item getItem(@PathVariable Long id) {
+    public Item getItem(@PathVariable long id) {
         return itemService.getItemById(id);
     }
 
@@ -43,7 +43,7 @@ public class ItemController {
 
     @DeleteMapping("/items/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteItem(@PathVariable Long id) {
+    public void deleteItem(@PathVariable long id) {
         itemService.delete(id);
     }
 }
